@@ -1,3 +1,5 @@
+package edu.brandeis.cosi103a.samples.lecture5.v1;
+
 import java.util.Scanner;
 
 public class MonolithicApp {
