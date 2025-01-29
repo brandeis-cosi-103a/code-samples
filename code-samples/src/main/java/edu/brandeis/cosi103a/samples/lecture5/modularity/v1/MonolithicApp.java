@@ -1,4 +1,4 @@
-package edu.brandeis.cosi103a.samples.lecture5.v1;
+package edu.brandeis.cosi103a.samples.lecture5.modularity.v1;
 
 import java.util.Scanner;
 
@@ -20,5 +20,6 @@ public class MonolithicApp {
         }
 
         System.out.println(message);
+        scanner.close();
     }
 }

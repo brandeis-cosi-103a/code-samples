@@ -1,4 +1,4 @@
-package edu.brandeis.cosi103a.samples.lecture5.v4;
+package edu.brandeis.cosi103a.samples.lecture5.modularity.v4;
 
 // Refactored Sample 3: Adding Design Patterns (Observer and Decorator)
 
@@ -12,14 +12,18 @@ interface InputService {
 }
 
 class UserInput implements InputService {
+    private Scanner scanner;
+
+    public UserInput() {
+        this.scanner = new Scanner(System.in);
+    }
+
     public String getName() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
         return scanner.nextLine();
     }
 
     public int getAge() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your age: ");
         return scanner.nextInt();
     }

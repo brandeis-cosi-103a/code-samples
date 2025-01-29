@@ -1,16 +1,20 @@
-package edu.brandeis.cosi103a.samples.lecture5.v2;
+package edu.brandeis.cosi103a.samples.lecture5.modularity.v2;
 
 import java.util.Scanner;
 
 class UserInput {
+    private Scanner scanner;
+
+    public UserInput() {
+        this.scanner = new Scanner(System.in);
+    }
+
     public String getName() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
         return scanner.nextLine();
     }
 
     public int getAge() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your age: ");
         return scanner.nextInt();
     }

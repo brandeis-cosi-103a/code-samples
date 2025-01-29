@@ -1,4 +1,4 @@
-package edu.brandeis.cosi103a.samples.lecture5.v3;
+package edu.brandeis.cosi103a.samples.lecture5.modularity.v3;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

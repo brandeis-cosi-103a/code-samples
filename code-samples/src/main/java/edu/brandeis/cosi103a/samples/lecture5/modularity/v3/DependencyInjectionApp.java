@@ -1,4 +1,4 @@
-package edu.brandeis.cosi103a.samples.lecture5.v3;
+package edu.brandeis.cosi103a.samples.lecture5.modularity.v3;
 
 import java.util.Scanner;
 
@@ -8,14 +8,18 @@ interface InputService {
 }
 
 class UserInput implements InputService {
+    private Scanner scanner;
+
+    public UserInput() {
+        this.scanner = new Scanner(System.in);
+    }
+
     public String getName() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name: ");
         return scanner.nextLine();
     }
 
     public int getAge() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your age: ");
         return scanner.nextInt();
     }
