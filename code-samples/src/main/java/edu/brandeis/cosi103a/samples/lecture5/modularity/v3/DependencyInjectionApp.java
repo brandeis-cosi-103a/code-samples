@@ -7,6 +7,11 @@ interface InputService {
     int getAge();
 }
 
+class TestInput implements InputService {
+    public String getName() { return "Joe"; }
+    public int getAge() { return 27; }
+}
+
 class UserInput implements InputService {
     private Scanner scanner;
 
