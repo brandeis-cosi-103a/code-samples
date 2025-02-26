@@ -11,7 +11,7 @@ public class Example {
     public static void printTempStats(double tempFahrenheit, Emitter emitter) {
         double tempCelsius = (tempFahrenheit - 32) * 5 / 9;
 
-        System.out.println("Temperature is: " + tempCelsius + "C");
+        emitter.emit("Temperature is: " + tempCelsius + "C");
 
         if (tempCelsius > 37) {
             emitter.emit("It's really hot!");
