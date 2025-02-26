@@ -1,5 +1,6 @@
 {
     "java.debug.settings.onBuildFailureProceed": true,
     "java.configuration.updateBuildConfiguration": "automatic",
-    "editor.inlayHints.enabled": "off"
+    "editor.inlayHints.enabled": "off",
+    "java.compile.nullAnalysis.mode": "disabled"
 }
