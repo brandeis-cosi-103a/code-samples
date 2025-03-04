@@ -72,6 +72,8 @@ public class Example {
                 .addReview("Great book on Java best practices.")
                 .addReview("A must-read for Java developers.");
 
+        BookInfo book2 = book.withYear(2022);
+        
         ImmutableList<String> reviews = book.getReviews();
         System.out.println("Initial reviews: " + reviews);
         // Can't modify an ImmutableList

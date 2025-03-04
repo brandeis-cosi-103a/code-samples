@@ -4,6 +4,13 @@ interface Emitter {
     void emit(String message);
 }
 
+class ConsoleEmitter implements Emitter {
+    @Override
+    public void emit(String message) {
+        System.out.println(message);
+    }
+}
+
 // We've made the function testable by dependency-injecting a function for output.
 // See the test in ...lecture10.refactoring.inject.after.ExampleTest
 // Additionally, the functuon is now more flexible as it can output in any way that
@@ -13,7 +20,7 @@ public class Example {
 
     public static void printTempStats(double tempFahrenheit, Emitter emitter) {
         double tempCelsius = (tempFahrenheit - 32) * 5 / 9;
-        System.out.println("Temperature is: " + tempCelsius + "C");
+        emitter.emit("Temperature is: " + tempCelsius + "C");
 
         if (tempCelsius > 37) {
             emitter.emit("It's really hot!");
