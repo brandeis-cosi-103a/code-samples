@@ -49,6 +49,22 @@ class Request {
     }
 }
 
+class Response {
+    private String result;
+
+    public Response(String result) {
+        this.result = result;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+}
+
 class ClientHandler implements Runnable {
     private final Socket socket;
 
@@ -104,7 +120,8 @@ class ClientHandler implements Runnable {
             result = "Unknown method";
         }
         
-        return result;
+        Response response = new Response(result);
+        return serializeResponse(response);
     }
 
     private Request parseRequest(String body) {
@@ -117,9 +134,19 @@ class ClientHandler implements Runnable {
         }
     }
 
+    private String serializeResponse(Response response) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(response);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Error serializing response";
+        }
+    }
+
     private void sendResponse(PrintWriter out, int statusCode, String responseBody) {
         out.println("HTTP/1.1 " + statusCode + " OK");
-        out.println("Content-Type: text/plain");
+        out.println("Content-Type: application/json");
         out.println("Content-Length: " + responseBody.length());
         out.println();
         out.println(responseBody);
